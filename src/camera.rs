@@ -3,7 +3,7 @@ use noisy_bevy::simplex_noise_2d;
 use rand::{Rng, SeedableRng};
 use std::f32::consts::TAU;
 
-use crate::{MainCamera, Player};
+use crate::Player;
 
 #[derive(Debug)]
 pub struct CameraPlugin;
@@ -26,6 +26,9 @@ impl Plugin for CameraPlugin {
 fn startup(mut commands: Commands) {
     commands.spawn((MainCamera, Camera2dBundle::default()));
 }
+
+#[derive(Component)]
+pub struct MainCamera;
 
 #[derive(Resource, Default, Debug, Clone, Copy)]
 pub struct ScreenShake {
